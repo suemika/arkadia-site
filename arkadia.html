@@ -98,14 +98,14 @@ body {
 
 /* ---- Hero ---- */
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
+  margin-top: 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  padding-top: calc(64px + 2rem);
   position: relative;
   overflow: hidden;
 }
@@ -577,7 +577,6 @@ body {
 
 /* ---- 响应式 ---- */
 @media (max-width: 768px) {
-  .hero { padding-top: calc(64px + 4rem); }
   .hero-brand { font-size: 2.5rem; letter-spacing: 6px; }
   .hero-row { flex-direction: column; gap: 2rem; }
   .hero-text { text-align: center; }
