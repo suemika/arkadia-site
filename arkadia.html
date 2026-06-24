@@ -511,6 +511,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 16px;
+  margin: 0 1rem;
 }
 .parallax-strip img {
   position: absolute;
@@ -536,9 +538,11 @@ body {
 
 /* ---- 全屏展示带 ---- */
 .full-image-strip {
-  width: 100%;
+  width: calc(100% - 2rem);
   max-height: 500px;
   overflow: hidden;
+  border-radius: 16px;
+  margin: 0 1rem;
 }
 .full-image-strip img {
   width: 100%;
@@ -778,6 +782,8 @@ body {
 .gallery-section {
   padding: 100px 2rem;
   background: var(--cream);
+  border-radius: 16px;
+  margin: 0 1rem 2rem;
 }
 .gallery-inner {
   max-width: 1100px;
@@ -816,6 +822,8 @@ body {
   background: var(--warm-white);
   padding: 100px 2rem;
   position: relative;
+  border-radius: 16px;
+  margin: 0 1rem 2rem;
 }
 .wood-detail-inner {
   max-width: 1100px;
@@ -926,6 +934,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 16px;
+  margin: 0 1rem;
 }
 .cinematic-strip .cinematic-bg {
   position: absolute;
@@ -976,6 +986,11 @@ body {
 
 @media (max-width: 768px) {
   .cinematic-strip { min-height: 50vh; }
+  .cinematic-strip, .parallax-strip, .full-image-strip, .wood-detail-strip, .gallery-section {
+    border-radius: 10px;
+    margin: 0 0.5rem;
+  }
+  .wood-detail-strip, .gallery-section { margin-bottom: 1rem; }
 }
 
 </style>
