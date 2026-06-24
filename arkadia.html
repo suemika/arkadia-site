@@ -917,6 +917,67 @@ body {
   object-fit: cover;
 }
 
+
+/* ---- 电影感叠层 ---- */
+.cinematic-strip {
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cinematic-strip .cinematic-bg {
+  position: absolute;
+  inset: 0;
+}
+.cinematic-strip .cinematic-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cinematic-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(60,42,30,0.35) 0%,
+    rgba(60,42,30,0.2) 40%,
+    rgba(60,42,30,0.55) 100%);
+}
+.cinematic-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 700px;
+  padding: 2rem;
+}
+.cinematic-content .section-tag {
+  color: var(--gold-light);
+}
+.cinematic-content .section-title {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.cinematic-content .section-subtitle {
+  color: rgba(255,255,255,0.85);
+}
+
+/* ---- story-img 取消强制比例，竖图自然显示 ---- */
+.story-img.story-portrait {
+  aspect-ratio: auto;
+  max-height: 600px;
+}
+.story-img.story-portrait img {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .cinematic-strip { min-height: 50vh; }
+}
+
 </style>
 </head>
 <body>
@@ -1044,7 +1105,7 @@ body {
 <!-- 温馨简洁 -->
 <section class="section" id="peaceful-living">
   <div class="story-grid">
-    <div class="story-img" style="aspect-ratio:2/3;">
+    <div class="story-img story-portrait">
       <img src="arkadia_images/page11_img00.jpeg" alt="温馨简洁家居">
     </div>
     <div class="story-text" style="display:flex; flex-direction:column; justify-content:center;">
@@ -1056,24 +1117,17 @@ body {
 </section>
 
 <!-- 本质纯粹 -->
-<section class="section" id="pure-essence">
-  <div class="story-grid">
-    <div class="story-text">
-      <p class="section-tag">PURE ESSENCE</p>
-      <h2 class="section-title">本质纯粹</h2>
-      <p class="section-subtitle">淡雅清爽，不事雕琢，时刻散发出超凡脱俗的美感。</p>
-      <p>回归原木最本真的状态，以最少的修饰呈现最多的质感。每一件作品都是一次与自然的坦诚对话。</p>
-    </div>
-    <div class="dual-image-row" style="grid-template-columns:1fr 1fr; display:grid; gap:1rem;">
-      <div class="dual-img" style="box-shadow:none;">
-        <img src="arkadia_images/page12_img00.jpeg" alt="本质纯粹">
-      </div>
-      <div class="dual-img" style="box-shadow:none;">
-        <img src="arkadia_images/page12_img01.jpeg" alt="本质纯粹">
-      </div>
-    </div>
+<div class="cinematic-strip" id="pure-essence">
+  <div class="cinematic-bg">
+    <img src="arkadia_images/page12_img00.jpeg" alt="本质纯粹">
   </div>
-</section>
+  <div class="cinematic-overlay"></div>
+  <div class="cinematic-content">
+    <p class="section-tag">PURE ESSENCE</p>
+    <h2 class="section-title">本质纯粹</h2>
+    <p class="section-subtitle">淡雅清爽，不事雕琢，时刻散发出超凡脱俗的美感。</p>
+  </div>
+</div>
 
 <!-- 分隔带：原木纹理 -->
 <div class="parallax-strip">
@@ -1254,23 +1308,17 @@ body {
 
 
 <!-- 化繁为简 -->
-<section class="section" id="simplify">
-  <div class="story-grid">
-    <div class="story-text">
-      <p class="section-tag">LESS IS MORE</p>
-      <h2 class="section-title">化繁为简</h2>
-      <p class="section-subtitle">从本真出发，清新怡然</p>
-    </div>
-    <div class="dual-image-row" style="grid-template-columns:1fr 1fr; display:grid; gap:1rem;">
-      <div class="dual-img" style="box-shadow:none;">
-        <img src="arkadia_images/page13_img00.jpeg" alt="化繁为简">
-      </div>
-      <div class="dual-img" style="box-shadow:none;">
-        <img src="arkadia_images/page13_img01.jpeg" alt="化繁为简">
-      </div>
-    </div>
+<div class="cinematic-strip" id="simplify">
+  <div class="cinematic-bg">
+    <img src="arkadia_images/page13_img00.jpeg" alt="化繁为简">
   </div>
-</section>
+  <div class="cinematic-overlay"></div>
+  <div class="cinematic-content">
+    <p class="section-tag">LESS IS MORE</p>
+    <h2 class="section-title">化繁为简</h2>
+    <p class="section-subtitle">从本真出发，清新怡然</p>
+  </div>
+</div>
 
 <!-- 简约态度 -->
 <section class="section" id="simplicity-attitude">
@@ -1368,16 +1416,12 @@ body {
 </section>
 
 <!-- 品牌使命 -->
-<div class="mission-strip" id="mission">
-  <div class="mission-inner">
-    <p class="section-tag">OUR MISSION</p>
-    <h2 class="section-title">生生不息的仁和之力</h2>
-    <p class="mission-text">阿卡·迪亚致力于将木的特性与人们的居住相融合<br>不仅局限于木质家具本身<br>还有木自有的生生不息的仁和之力的展现</p>
-    <div class="mission-img">
-      <img src="arkadia_images/page14_img00.jpeg" alt="阿卡·迪亚使命">
-    </div>
+<section class="section" id="mission">
+  <div class="quote-card">
+    <p class="chinese-quote">阿卡·迪亚致力于将木的特性与人们的居住相融合</p>
+    <p style="color:var(--text-light); font-size:0.95rem; margin-top:1rem; letter-spacing:2px; line-height:2.2;">不仅局限于木质家具本身<br>还有木自有的生生不息的仁和之力的展现</p>
   </div>
-</div>
+</section>
 
 
 <!-- 联系我们 -->
