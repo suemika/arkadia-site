@@ -538,7 +538,28 @@ body {
   height: 400px;
 }
 .parallax-tall {
-  height: 600px;
+  height: auto;
+  min-height: auto;
+}
+.parallax-tall img {
+  position: static;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 16px;
+}
+.parallax-tall .parallax-overlay {
+  display: none;
+}
+.parallax-tall .parallax-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--cream);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  z-index: 1;
 }
 .parallax-strip-old {
   /* placeholder, remove */
@@ -1279,7 +1300,7 @@ body {
 
 <!-- 分隔带：原木+石材 -->
 <div class="parallax-strip parallax-tall">
-  <img src="arkadia_images/page22_img00.jpeg" alt="" style="object-position: center 35%;">
+  <img src="arkadia_images/page22_img00.jpeg" alt="">
   <div class="parallax-overlay"></div>
   <p class="parallax-text">
     原木和石材相互呼应<br>淳朴与灵动相蕴
