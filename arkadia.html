@@ -504,6 +504,36 @@ body {
 }
 
 /* ---- Parallax 分隔带 ---- */
+.parallax-texture {
+  height: auto;
+  min-height: auto;
+  padding: 0;
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  margin: 0 1rem 2rem;
+  background: var(--warm-white);
+}
+.parallax-texture .parallax-overlay {
+  display: none;
+}
+.parallax-texture img {
+  position: static;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 16px;
+}
+.parallax-texture .parallax-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--cream);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  z-index: 1;
+}
 .parallax-strip {
   height: 400px;
   overflow: hidden;
@@ -1145,7 +1175,7 @@ body {
 </div>
 
 <!-- 分隔带：原木纹理 -->
-<div class="parallax-strip">
+<div class="parallax-strip parallax-texture">
   <img src="arkadia_images/page10_img00.jpeg" alt="">
   <div class="parallax-overlay"></div>
   <p class="parallax-text">
