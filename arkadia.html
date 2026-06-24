@@ -504,6 +504,38 @@ body {
 }
 
 /* ---- Parallax 分隔带 ---- */
+.parallax-strip {
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  margin: 0 1rem;
+}
+.parallax-strip img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.parallax-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(60,42,30,0.45);
+}
+.parallax-text {
+  position: relative;
+  z-index: 1;
+  color: var(--cream);
+  font-size: 1.6rem;
+  letter-spacing: 6px;
+  text-align: center;
+  line-height: 2.4;
+}
+
 .parallax-texture,
 .parallax-tall {
   height: auto;
@@ -543,37 +575,6 @@ body {
   line-height: 2.4;
   text-shadow: 0 2px 12px rgba(0,0,0,0.6);
   z-index: 2;
-}
-.parallax-strip {
-  height: 400px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  margin: 0 1rem;
-}
-.parallax-strip img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.parallax-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(60,42,30,0.45);
-}
-.parallax-text {
-  position: relative;
-  z-index: 1;
-  color: var(--cream);
-  font-size: 1.6rem;
-  letter-spacing: 6px;
-  text-align: center;
-  line-height: 2.4;
 }
 
 /* ---- 全屏展示带 ---- */
