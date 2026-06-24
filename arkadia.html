@@ -726,6 +726,168 @@ body {
   .lightbox-close { top: 12px; right: 12px; font-size: 1.6rem; width: 40px; height: 40px; }
   .lightbox-arrow { font-size: 1.8rem; }
 }
+
+/* ---- 双图横排 ---- */
+.dual-image-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.dual-image-row .dual-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(60, 42, 30, 0.06);
+  aspect-ratio: 4/3;
+}
+.dual-image-row .dual-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+.dual-image-row .dual-img:hover img { transform: scale(1.05); }
+
+/* ---- 纯文引语卡 ---- */
+.quote-card {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid rgba(232, 221, 208, 0.4);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 24px rgba(60, 42, 30, 0.06);
+}
+.quote-card .chinese-quote {
+  font-size: 1.5rem;
+  color: var(--walnut);
+  letter-spacing: 3px;
+  line-height: 2.4;
+  margin-bottom: 1rem;
+}
+.quote-card .english-quote {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+  letter-spacing: 2px;
+  font-family: Georgia, serif;
+}
+
+/* ---- 产品图集 ---- */
+.gallery-section {
+  padding: 100px 2rem;
+  background: var(--cream);
+}
+.gallery-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.gallery-item {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--glass-bg-warm);
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  border: 1px solid rgba(232, 221, 208, 0.35);
+  box-shadow: 0 4px 20px rgba(60, 42, 30, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  aspect-ratio: 4/3;
+}
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(60, 42, 30, 0.1);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+.gallery-item:hover img { transform: scale(1.05); }
+
+/* ---- 木纹细节条 ---- */
+.wood-detail-strip {
+  background: var(--warm-white);
+  padding: 100px 2rem;
+  position: relative;
+}
+.wood-detail-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.wood-detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.wood-detail-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(60, 42, 30, 0.08);
+  aspect-ratio: 4/3;
+}
+.wood-detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+.wood-detail-img:hover img { transform: scale(1.05); }
+.wood-detail-text h3 {
+  font-size: 1.4rem;
+  color: var(--walnut);
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
+.wood-detail-text p {
+  color: var(--text-light);
+  font-size: 1.05rem;
+  line-height: 2.2;
+  letter-spacing: 2px;
+}
+
+/* ---- 使命陈述 ---- */
+.mission-strip {
+  padding: 100px 2rem;
+  background: var(--cream);
+}
+.mission-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.mission-text {
+  font-size: 1.15rem;
+  color: var(--text);
+  line-height: 2.4;
+  letter-spacing: 2px;
+  margin-bottom: 2.5rem;
+}
+.mission-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(60, 42, 30, 0.08);
+}
+.mission-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 响应式补充 */
+@media (max-width: 768px) {
+  .dual-image-row, .wood-detail-row { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .quote-card .chinese-quote { font-size: 1.2rem; }
+}
+
 </style>
 </head>
 <body>
@@ -741,6 +903,7 @@ body {
     <li><a href="#materials">臻选木材</a></li>
     <li><a href="#styles">产品风格</a></li>
     <li><a href="#philosophy">设计理念</a></li>
+    <li><a href="#gallery">作品集萃</a></li>
     <li><a href="#contact">联系我们</a></li>
   </ul>
 </nav>
@@ -771,6 +934,12 @@ body {
 </section>
 
 <!-- 品牌故事 -->
+<!-- 起源装饰 -->
+<div class="section" style="padding-bottom:0; text-align:center;">
+  <div style="max-width:300px; margin:0 auto 3rem;">
+    <img src="arkadia_images/page03_img00.jpeg" alt="" style="width:100%; border-radius:var(--radius); box-shadow:0 4px 20px rgba(60,42,30,0.06);">
+  </div>
+</div>
 <section class="section" id="story">
   <p class="section-tag">BRAND STORY</p>
   <h2 class="section-title">品牌缘起</h2>
@@ -827,6 +996,60 @@ body {
       <div class="about-card-body">
         <h3>纯粹本质</h3>
         <p>原木的自然，用最简单的形式表现出不凡的魅力 —— 简于形，精于芯</p>
+        <div style="margin:1rem -1.5rem -1.8rem; border-radius:0 0 var(--radius) var(--radius); overflow:hidden;"><img src="arkadia_images/page08_img01.jpeg" alt="" style="width:100%; display:block;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 橙之灵动 -->
+<section class="section" id="orange-spirit">
+  <p class="section-tag">LIVELY SPIRIT</p>
+  <h2 class="section-title">宁静中流淌着灵动</h2>
+  <p class="section-subtitle">简约的原木气息中嵌入活泼的橙，为沉静的木质空间注入一抹不动声色的生动。</p>
+  <div class="dual-image-row">
+    <div class="dual-img">
+      <img src="arkadia_images/page07_img00.jpeg" alt="原木橙调">
+    </div>
+    <div class="dual-img">
+      <img src="arkadia_images/page07_img01.jpeg" alt="原木橙调细节">
+    </div>
+  </div>
+</section>
+
+<!-- 温馨简洁 -->
+<section class="section" id="peaceful-living">
+  <p class="section-tag">PEACEFUL LIVING</p>
+  <h2 class="section-title">温馨简洁</h2>
+  <p class="section-subtitle">细水长流般宁静，有自然之木的陪伴</p>
+  <div class="full-image-strip">
+    <img src="arkadia_images/page11_img00.jpeg" alt="温馨简洁家居">
+  </div>
+</section>
+
+<!-- 本质纯粹 -->
+<section class="section" id="pure-essence">
+  <div class="story-grid">
+    <div class="story-text">
+      <p class="section-tag">PURE ESSENCE</p>
+      <h2 class="section-title">本质纯粹</h2>
+      <div class="story-img-thumbs" style="display:flex; gap:0.6rem; margin-top:1.5rem; overflow-x:auto;">
+        <div style="flex:0 0 140px; border-radius:4px; overflow:hidden; aspect-ratio:4/3;"><img src="arkadia_images/page04_img01.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="flex:0 0 140px; border-radius:4px; overflow:hidden; aspect-ratio:4/3;"><img src="arkadia_images/page04_img02.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="flex:0 0 140px; border-radius:4px; overflow:hidden; aspect-ratio:4/3;"><img src="arkadia_images/page04_img03.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="flex:0 0 140px; border-radius:4px; overflow:hidden; aspect-ratio:4/3;"><img src="arkadia_images/page04_img04.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="flex:0 0 140px; border-radius:4px; overflow:hidden; aspect-ratio:4/3;"><img src="arkadia_images/page04_img05.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+      </div>
+      <p class="section-subtitle">淡雅清爽，不事雕琢，时刻散发出超凡脱俗的美感。</p>
+      <p>回归原木最本真的状态，以最少的修饰呈现最多的质感。每一件作品都是一次与自然的坦诚对话。</p>
+    </div>
+    <div class="dual-image-row" style="grid-template-columns:1fr 1fr; display:grid; gap:1rem;">
+      <div class="dual-img" style="box-shadow:none;">
+        <img src="arkadia_images/page12_img00.jpeg" alt="本质纯粹">
+      </div>
+      <div class="dual-img" style="box-shadow:none;">
+        <img src="arkadia_images/page12_img01.jpeg" alt="本质纯粹">
       </div>
     </div>
   </div>
@@ -886,6 +1109,16 @@ body {
 
 <!-- 产品风格 -->
 <section class="section" id="styles">
+  <div style="max-width:1100px; margin:0 auto 3rem;">
+    <div class="dual-image-row">
+      <div class="dual-img">
+        <img src="arkadia_images/page17_img00.jpeg" alt="产品风格">
+      </div>
+      <div class="dual-img">
+        <img src="arkadia_images/page17_img01.jpeg" alt="产品风格">
+      </div>
+    </div>
+  </div>
   <p class="section-tag">PRODUCT STYLES</p>
   <h2 class="section-title">自由定制家</h2>
   <p class="section-subtitle">
@@ -935,6 +1168,19 @@ body {
 </div>
 
 <!-- 设计理念 -->
+<!-- 自然灵韵双图补充 -->
+<div class="section" style="padding-bottom:0;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="philosophy-item has-img" style="margin-bottom:1.5rem;">
+      <div class="phil-img">
+        <img src="arkadia_images/page09_img01.jpeg" alt="">
+      </div>
+      <div class="phil-text">
+        <p class="chinese">淡雅质朴中见真淳<br>宁静悠远，心归自然</p>
+      </div>
+    </div>
+  </div>
+</div>
 <section class="section" id="philosophy">
   <p class="section-tag">DESIGN PHILOSOPHY</p>
   <h2 class="section-title">设计理念</h2>
@@ -996,6 +1242,152 @@ body {
   </div>
 </section>
 
+
+<!-- 化繁为简 -->
+<section class="section" id="simplify">
+  <div class="story-grid">
+    <div class="story-text">
+      <p class="section-tag">LESS IS MORE</p>
+      <h2 class="section-title">化繁为简</h2>
+      <p class="section-subtitle">从本真出发，清新怡然</p>
+    </div>
+    <div class="dual-image-row" style="grid-template-columns:1fr 1fr; display:grid; gap:1rem;">
+      <div class="dual-img" style="box-shadow:none;">
+        <img src="arkadia_images/page13_img00.jpeg" alt="化繁为简">
+      </div>
+      <div class="dual-img" style="box-shadow:none;">
+        <img src="arkadia_images/page13_img01.jpeg" alt="化繁为简">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 简约态度 -->
+<section class="section" id="simplicity-attitude">
+  <p class="section-tag">LIFE ATTITUDE</p>
+  <h2 class="section-title">简约和简单</h2>
+  <p class="section-subtitle">都是一种生活态度。大巧若拙，A capable man pretends to be stupid in order to avoid jealousy.</p>
+  <div class="dual-image-row">
+    <div class="dual-img">
+      <img src="arkadia_images/page25_img00.jpeg" alt="简约">
+    </div>
+    <div class="dual-img">
+      <img src="arkadia_images/page25_img01.jpeg" alt="生活态度">
+    </div>
+  </div>
+</section>
+
+<!-- 每一丝纹理 -->
+<div class="wood-detail-strip">
+  <div class="wood-detail-inner">
+    <div class="wood-detail-row">
+      <div class="wood-detail-img">
+        <img src="arkadia_images/page26_img00.jpeg" alt="原木纹理">
+      </div>
+      <div class="wood-detail-text">
+        <p class="section-tag">NATURE'S SCRIPT</p>
+        <h3>每一丝纹理</h3>
+        <p>如同镌刻于大自然的文字<br>书写成历史</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 流动纹理 -->
+<div class="wood-detail-strip">
+  <div class="wood-detail-inner">
+    <div class="wood-detail-row" style="direction: rtl;">
+      <div class="wood-detail-img" style="direction: ltr;">
+        <img src="arkadia_images/page28_img00.jpeg" alt="流动纹理">
+      </div>
+      <div class="wood-detail-text" style="direction: ltr;">
+        <p class="section-tag">NATURAL BEAUTY</p>
+        <h3>流动感极强的纹理</h3>
+        <p>最朴实的自然美<br>无需修饰，自有风骨</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 橄榄绿搭配 -->
+<div class="wood-detail-strip">
+  <div class="wood-detail-inner">
+    <div class="wood-detail-row">
+      <div class="wood-detail-img">
+        <img src="arkadia_images/page29_img00.jpeg" alt="橄榄绿搭配">
+      </div>
+      <div class="wood-detail-text">
+        <p class="section-tag">COLOR HARMONY</p>
+        <h3>橄榄绿与木色</h3>
+        <p>搭配相得益彰，流光溢彩<br>肌理独特，色彩饱满绚烂</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 产品图集 -->
+<div class="gallery-section" id="gallery">
+  <div class="gallery-inner">
+    <p class="section-tag">PORTFOLIO</p>
+    <h2 class="section-title">作品集萃</h2>
+    <p class="section-subtitle">每一件作品，都是阿卡·迪亚对原木美学的深度诠释。</p>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="arkadia_images/page32_img00.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page32_img01.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page32_img02.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page32_img03.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page32_img04.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page33_img00.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page33_img01.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page33_img02.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page33_img03.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page33_img04.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page34_img01.jpeg" alt="欧美古典细节"></div>
+      <div class="gallery-item"><img src="arkadia_images/page35_img00.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page35_img01.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page35_img02.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page35_img03.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page35_img04.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page35_img05.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page35_img06.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page36_img00.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page36_img01.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page36_img02.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page36_img03.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page36_img04.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page37_img00.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page37_img01.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page37_img02.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page37_img03.jpeg" alt="作品"></div>
+      <div class="gallery-item"><img src="arkadia_images/page37_img04.jpeg" alt="作品"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 走进阿卡·迪亚 -->
+<section class="section" id="welcome-quote">
+  <div class="quote-card" style="position:relative; overflow:hidden;">
+    <div style="position:absolute; inset:0; z-index:0;"><img src="arkadia_images/page16_img00.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;opacity:0.3;"></div>
+    <div style="position:relative; z-index:1;">
+    <p class="chinese-quote">走进阿卡·迪亚<br>就如进入远离尘嚣的宁静桃源</p>
+    <p class="english-quote">走近阿卡·迪亚<br>就像在聆听一曲古典雅致的丝竹之音</p>
+    </div>
+  </div>
+</section>
+
+<!-- 品牌使命 -->
+<div class="mission-strip" id="mission">
+  <div class="mission-inner">
+    <p class="section-tag">OUR MISSION</p>
+    <h2 class="section-title">生生不息的仁和之力</h2>
+    <p class="mission-text">阿卡·迪亚致力于将木的特性与人们的居住相融合<br>不仅局限于木质家具本身<br>还有木自有的生生不息的仁和之力的展现</p>
+    <div class="mission-img">
+      <img src="arkadia_images/page14_img00.jpeg" alt="阿卡·迪亚使命">
+    </div>
+  </div>
+</div>
+
+
 <!-- 联系我们 -->
 <section class="cta" id="contact">
   <div class="cta-bg">
@@ -1011,6 +1403,17 @@ body {
     </div>
   </div>
 </section>
+
+
+  <div style="margin-top:2rem; display:flex; gap:1rem; justify-content:center; max-width:500px; margin-left:auto; margin-right:auto;">
+    <div style="flex:1; border-radius: var(--radius); overflow:hidden; box-shadow:0 4px 20px rgba(60,42,30,0.12); aspect-ratio:4/3;">
+      <img src="arkadia_images/page38_img01.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="flex:1; border-radius: var(--radius); overflow:hidden; box-shadow:0 4px 20px rgba(60,42,30,0.12); aspect-ratio:4/3;">
+      <img src="arkadia_images/page38_img02.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+
 
 <!-- 页脚 -->
 <footer class="footer">
